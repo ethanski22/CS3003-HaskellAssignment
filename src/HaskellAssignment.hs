@@ -18,4 +18,6 @@ findFirst predicate = go 0
 -- palindrome
 ------------------------------------------------
 palindrome :: [Char] -> Bool
-palindrome str = str == reverse str
+palindrome [] = True
+palindrome [_] = True
+palindrome (x:xs) = (x == last xs) && palindrome (init xs)
